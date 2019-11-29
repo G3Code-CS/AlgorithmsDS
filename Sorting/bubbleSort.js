@@ -9,8 +9,8 @@ function bubbleSort(numbers) {
         numbers[i + 1] = temp;
         swapCount = swapCount + 1;
       }
+      console.log(numbers);
     }
-    console.log(numbers);
   } while (swapCount > 0);
   return numbers;
 }
