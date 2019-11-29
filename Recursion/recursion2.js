@@ -7,6 +7,7 @@
 //   }
 //   console.log(series);
 // }
+let wr = (msg = "------") => console.log(`${msg}`);
 
 function fibonacci(n) {
   if (n < 2) {
@@ -17,5 +18,5 @@ function fibonacci(n) {
 }
 
 for (let i = 0; i < 10; i++) {
-  console.log(`${i} : ${fibonacci(i)}`);
+  wr(`${i} : ${fibonacci(i)}`);
 }
