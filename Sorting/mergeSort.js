@@ -14,7 +14,7 @@ function stitch(leftVal, rightVal) {
   //   console.log(leftVal, rightVal);
   let results = [];
   while (leftVal.length && rightVal.length) {
-    if (leftVal[0] < rightVal[0]) {
+    if (leftVal[0] <= rightVal[0]) {
       results.push(leftVal.shift());
     } else {
       results.push(rightVal.shift());
