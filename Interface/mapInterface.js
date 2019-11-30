@@ -7,4 +7,4 @@ let animals = new Map([
 animals.set(4, "bear");
 console.log(animals.get(1));
 console.log(animals.has(4));
-console.log(animals.size);
+console.log(animals.keys());
