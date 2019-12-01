@@ -34,6 +34,10 @@ class ArrayList {
     delete this.data[this.length - 1];
     this.length--;
   }
+
+  addIndex(index, value) {
+    // Implement this
+  }
 }
 
 let students = new ArrayList();
