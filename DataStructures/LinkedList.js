@@ -20,19 +20,67 @@ class LinkedList {
     } else {
       this.tail.next = node;
     }
+
     this.tail = node;
   }
 
   pop() {
-    return value;
+    return this.delete(this.length - 1);
   }
 
-  _find(value, test = this._test) {}
+  _find(value, test = this._test) {
+    let current = this.head;
+    let i = 0;
+    while (current) {
+      if (test(value, current.value, i, current)) {
+        return current;
+      }
+      current = current.next;
+      i++;
+    }
+    return null;
+  }
 
-  _test(a, b) {}
-  delete(index) {}
-  get(index) {}
+  _test(a, b) {
+    return a === b;
+  }
+  delete(index) {
+    if (index === 0) {
+      const head = this.head;
+      if (head) {
+        this.head = head.next;
+      } else {
+        this.head = this.tail = null;
+      }
+      this.length--;
+      return head.value;
+    }
+
+    const node = this._find(index - 1, this._testIndex);
+    const excise = node.next;
+    if (!excise) return null;
+    node.next = excise.next;
+    if (node.next && !node.next.next) {
+      this.tail = node.next;
+    }
+    this.length--;
+    return excise.value;
+  }
+  get(index) {
+    const node = this._find(index, this._testIndex);
+    if (!node) return null;
+    return node.value;
+  }
   _testIndex(search, __, i) {
     return search === i;
   }
 }
+
+const list1 = new LinkedList();
+list1.push("one");
+list1.push("Two");
+list1.push("Three");
+list1.push("Four");
+// console.log(list1);
+list1.delete(2);
+console.log(list1);
